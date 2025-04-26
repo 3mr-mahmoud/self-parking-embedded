@@ -1,0 +1,83 @@
+#ifndef PINS_H
+#define PINS_H
+
+#include <avr/io.h>
+
+#define F_CPU 16000000UL
+#define BAUD_RATE 9600
+
+#define MOTOR_RIGHT_IN1_DDR  DDRB
+#define MOTOR_RIGHT_IN1_PORT PORTB
+#define MOTOR_RIGHT_IN1_PIN  PB0
+
+#define MOTOR_RIGHT_IN2_DDR  DDRB
+#define MOTOR_RIGHT_IN2_PORT PORTB
+#define MOTOR_RIGHT_IN2_PIN  PB1
+
+#define MOTOR_LEFT_IN3_DDR   DDRB
+#define MOTOR_LEFT_IN3_PORT  PORTB
+#define MOTOR_LEFT_IN3_PIN   PB2
+
+#define MOTOR_LEFT_IN4_DDR   DDRB
+#define MOTOR_LEFT_IN4_PORT  PORTB
+#define MOTOR_LEFT_IN4_PIN   PB3
+
+#define MOTOR_RIGHT_ENA_DDR  DDRB
+#define MOTOR_RIGHT_ENA_PORT PORTB
+#define MOTOR_RIGHT_ENA_PIN  PB4
+
+#define MOTOR_LEFT_ENB_DDR   DDRB
+#define MOTOR_LEFT_ENB_PORT  PORTB
+#define MOTOR_LEFT_ENB_PIN   PB5
+
+#define LED_STATUS_DDR       DDRC
+#define LED_STATUS_PORT      PORTC
+#define LED_STATUS_PIN       PC0
+
+#define LED_PARKING_DDR      DDRC
+#define LED_PARKING_PORT     PORTC
+#define LED_PARKING_PIN      PC1
+
+#define BLUETOOTH_RX_DDR     DDRD
+#define BLUETOOTH_RX_PORT    PORTD
+#define BLUETOOTH_RX_PIN     PD0
+
+#define BLUETOOTH_TX_DDR     DDRD
+#define BLUETOOTH_TX_PORT    PORTD
+#define BLUETOOTH_TX_PIN     PD1
+
+#define US_FRONT_TRIG_DDR    DDRD
+#define US_FRONT_TRIG_PORT   PORTD
+#define US_FRONT_TRIG_PIN    PD2
+
+#define US_FRONT_ECHO_DDR    DDRD
+#define US_FRONT_ECHO_PORT   PORTD
+#define US_FRONT_ECHO_PIN    PD3  
+
+#define US_RIGHT_TRIG_DDR    DDRD
+#define US_RIGHT_TRIG_PORT   PORTD
+#define US_RIGHT_TRIG_PIN    PD4
+
+#define US_RIGHT_ECHO_DDR    DDRD
+#define US_RIGHT_ECHO_PORT   PORTD
+#define US_RIGHT_ECHO_PIN    PD5
+
+#define US_LEFT_TRIG_DDR     DDRD
+#define US_LEFT_TRIG_PORT    PORTD
+#define US_LEFT_TRIG_PIN     PD6
+
+#define US_LEFT_ECHO_DDR     DDRD
+#define US_LEFT_ECHO_PORT    PORTD
+#define US_LEFT_ECHO_PIN     PD7
+
+#define SPEED_SLOW              85
+#define SPEED_NORMAL            170
+#define SPEED_MAX               255
+
+#define MIN_PARKING_SPACE       15
+#define SAFE_DISTANCE           5
+#define ROAD_WIDTH              30
+#define VEHICLE_LENGTH          20
+#define VEHICLE_WIDTH           10
+
+#endif
