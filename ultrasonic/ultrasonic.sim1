@@ -1,0 +1,37 @@
+<circuit version="1.0.0-SR2" rev="1449" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="444,472" rotation="0" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps itemtype="MCU" CircId="1_mega328-109" mainComp="true" Show_id="true" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_mega328-109" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="build/arduino.avr.uno/ultrasonic.ino.hex" Auto_Load="false" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
+</item>
+
+<item itemtype="SR04" CircId="SR04-2" mainComp="false" Show_id="false" Show_Val="false" Pos="912,516" rotation="0" hflip="1" vflip="1" label="SR04-2" idLabPos="-16,-48" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="SR04" CircId="SR04-3" mainComp="false" Show_id="false" Show_Val="false" Pos="864,628" rotation="0" hflip="1" vflip="1" label="SR04-3" idLabPos="-16,-48" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="SR04" CircId="SR04-4" mainComp="false" Show_id="false" Show_Val="false" Pos="800,736" rotation="0" hflip="1" vflip="1" label="SR04-4" idLabPos="-16,-48" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="WaveGen" CircId="WaveGen-26" mainComp="false" Show_id="false" Show_Val="false" Pos="516,744" rotation="0" hflip="1" vflip="1" label="WaveGen-26" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Wave_Type="Sine" Freq="1000 Hz" Steps="100 _Steps" Duty="50 _%" Always_On="false" Semi_Ampli="2.5 V" Mid_Volt="0 V" />
+
+<item itemtype="WaveGen" CircId="WaveGen-28" mainComp="false" Show_id="false" Show_Val="false" Pos="748,604" rotation="0" hflip="1" vflip="1" label="WaveGen-28" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Wave_Type="Sine" Freq="1000 Hz" Steps="100 _Steps" Duty="50 _%" Always_On="false" Semi_Ampli="2.5 V" Mid_Volt="0 V" />
+
+<item itemtype="WaveGen" CircId="WaveGen-30" mainComp="false" Show_id="false" Show_Val="false" Pos="784,472" rotation="0" hflip="1" vflip="1" label="WaveGen-30" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Wave_Type="Sine" Freq="1000 Hz" Steps="100 _Steps" Duty="50 _%" Always_On="false" Semi_Ampli="2.5 V" Mid_Volt="0 V" />
+
+<item itemtype="Connector" uid="connector-20" startpinid="SR04-3-trigpin" endpinid="Uno-1-A2" pointList="864,676,696,676,696,512,596,512" />
+
+<item itemtype="Connector" uid="connector-21" startpinid="SR04-3-outpin" endpinid="Uno-1-A3" pointList="872,676,872,692,708,692,708,504,596,504" />
+
+<item itemtype="Connector" uid="connector-22" startpinid="SR04-4-trigpin" endpinid="Uno-1-A0" pointList="800,784,800,792,672,792,672,528,596,528" />
+
+<item itemtype="Connector" uid="connector-23" startpinid="SR04-4-outpin" endpinid="Uno-1-A1" pointList="808,784,808,820,632,820,632,520,596,520" />
+
+<item itemtype="Connector" uid="connector-24" startpinid="SR04-2-trigpin" endpinid="Uno-1-A4" pointList="912,564,788,564,788,496,596,496" />
+
+<item itemtype="Connector" uid="connector-25" startpinid="SR04-2-outpin" endpinid="Uno-1-A5" pointList="920,564,920,584,684,584,684,488,596,488" />
+
+<item itemtype="Connector" uid="Connector-27" startpinid="WaveGen-26-outnod" endpinid="SR04-4-inpin" pointList="532,744,648,744,648,712,712,712" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="WaveGen-28-outnod" endpinid="SR04-3-inpin" pointList="764,604,776,604" />
+
+<item itemtype="Connector" uid="Connector-31" startpinid="WaveGen-30-outnod" endpinid="SR04-2-inpin" pointList="800,472,824,472,824,492" />
+
+</circuit>
