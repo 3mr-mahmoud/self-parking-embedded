@@ -1,47 +1,47 @@
-<circuit version="1.0.0-SR2" rev="1449" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="732,432" rotation="360" hflip="1" vflip="1" label="Uno-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps itemtype="MCU" CircId="1_mega328-109" mainComp="true" Show_id="true" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_mega328-109" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="build/arduino.avr.uno/motors.ino.hex" Auto_Load="false" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
+<item itemtype="Subcircuit" CircId="Uno-1" mainComp="false" Show_id="true" Show_Val="false" Pos="748,420" rotation="360" hflip="1" vflip="1" label="Uno-1" idLabPos="82.7435,90.7806" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="build/arduino.avr.uno/motors.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
 </item>
 
-<item itemtype="DcMotor" CircId="DcMotor-2" mainComp="false" Show_id="true" Show_Val="false" Pos="1196,376" rotation="360" hflip="1" vflip="1" label="FR" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+<item itemtype="DcMotor" CircId="DcMotor-2" mainComp="false" Show_id="true" Show_Val="false" Pos="1300,380" rotation="360" hflip="1" vflip="1" label="Right" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
 
-<item itemtype="Subcircuit" CircId="L298P-3" mainComp="false" Show_id="true" Show_Val="false" Pos="972,476" rotation="0" hflip="1" vflip="1" label="L298P-3" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+<item itemtype="Subcircuit" CircId="L298P-3" mainComp="false" Show_id="true" Show_Val="false" Pos="1076,480" rotation="0" hflip="1" vflip="1" label="L298P-3" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
 
-<item itemtype="DcMotor" CircId="DcMotor-9" mainComp="false" Show_id="true" Show_Val="false" Pos="1088,384" rotation="360" hflip="1" vflip="1" label="FL" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+<item itemtype="DcMotor" CircId="DcMotor-9" mainComp="false" Show_id="true" Show_Val="false" Pos="1192,388" rotation="360" hflip="1" vflip="1" label="Left" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
 
-<item itemtype="Rail" CircId="Rail-20" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="1112,576" rotation="360" hflip="1" vflip="1" label="Rail-20" idLabPos="-16,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="12 V" />
+<item itemtype="Rail" CircId="Rail-20" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="1216,580" rotation="360" hflip="1" vflip="1" label="Rail-20" idLabPos="-16,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" />
 
-<item itemtype="Ground" CircId="Ground-58" mainComp="false" Show_id="false" Show_Val="false" Pos="1032,608" rotation="0" hflip="1" vflip="1" label="Ground-58" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+<item itemtype="Ground" CircId="Ground-58" mainComp="false" Show_id="false" Show_Val="false" Pos="1136,612" rotation="0" hflip="1" vflip="1" label="Ground-58" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Node" CircId="Node-61" mainComp="false" Pos="1032,552" />
+<item itemtype="Node" CircId="Node-61" mainComp="false" Pos="1136,556" />
 
-<item itemtype="Connector" uid="connector-116" startpinid="Uno-1-9" endpinid="L298P-3-IN2" pointList="740,528,668,528,668,420,924,420,924,492,964,492" />
+<item itemtype="Connector" uid="connector-120" startpinid="Rail-20-outnod" endpinid="L298P-3-Vs" pointList="1232,580,1232,528,1116,528" />
 
-<item itemtype="Connector" uid="connector-117" startpinid="Uno-1-12" endpinid="L298P-3-EnA" pointList="740,552,660,552,660,668,928,668,928,524,964,524" />
+<item itemtype="Connector" uid="connector-121" startpinid="L298P-3-SenB" endpinid="Node-61-0" pointList="1116,544,1116,556,1136,556" />
 
-<item itemtype="Connector" uid="connector-118" startpinid="L298P-3-IN3" endpinid="Uno-1-10" pointList="964,500,896,500,896,428,712,428,712,536,740,536" />
+<item itemtype="Connector" uid="connector-122" startpinid="L298P-3-SenA" endpinid="Node-61-1" pointList="1116,536,1160,536,1160,556,1136,556" />
 
-<item itemtype="Connector" uid="connector-119" startpinid="L298P-3-EnB" endpinid="Uno-1-13" pointList="964,532,964,684,688,684,688,560,740,560" />
+<item itemtype="Connector" uid="connector-123" startpinid="Node-61-2" endpinid="Ground-58-Gnd" pointList="1136,556,1136,596" />
 
-<item itemtype="Connector" uid="connector-120" startpinid="Rail-20-outnod" endpinid="L298P-3-Vs" pointList="1128,576,1128,524,1012,524" />
+<item itemtype="Connector" uid="Connector-203" startpinid="Uno-1-5" endpinid="L298P-3-EnA" pointList="756,476,688,476,688,676,1032,676,1032,528,1068,528" />
 
-<item itemtype="Connector" uid="connector-121" startpinid="L298P-3-SenB" endpinid="Node-61-0" pointList="1012,540,1012,552,1032,552" />
+<item itemtype="Connector" uid="Connector-204" startpinid="Uno-1-6" endpinid="L298P-3-EnB" pointList="756,484,716,484,716,652,1056,652,1056,536,1068,536" />
 
-<item itemtype="Connector" uid="connector-122" startpinid="L298P-3-SenA" endpinid="Node-61-1" pointList="1012,532,1056,532,1056,552,1032,552" />
+<item itemtype="Connector" uid="Connector-205" startpinid="DcMotor-2-lPin" endpinid="L298P-3-OUT1" pointList="1260,380,1260,464,1116,464,1116,488" />
 
-<item itemtype="Connector" uid="connector-123" startpinid="Node-61-2" endpinid="Ground-58-Gnd" pointList="1032,552,1032,592" />
+<item itemtype="Connector" uid="Connector-206" startpinid="L298P-3-OUT2" endpinid="DcMotor-2-rPin" pointList="1116,496,1340,496,1340,380" />
 
-<item itemtype="Connector" uid="connector-124" startpinid="L298P-3-IN4" endpinid="Uno-1-11" pointList="964,508,904,508,904,396,652,396,652,544,740,544" />
+<item itemtype="Connector" uid="Connector-207" startpinid="DcMotor-9-lPin" endpinid="L298P-3-OUT3" pointList="1152,388,1152,504,1116,504" />
 
-<item itemtype="Connector" uid="connector-125" startpinid="Uno-1-8" endpinid="L298P-3-IN1" pointList="740,520,684,520,684,404,936,404,936,484,964,484" />
+<item itemtype="Connector" uid="Connector-208" startpinid="DcMotor-9-rPin" endpinid="L298P-3-OUT4" pointList="1232,388,1232,512,1116,512" />
 
-<item itemtype="Connector" uid="connector-126" startpinid="DcMotor-9-lPin" endpinid="L298P-3-OUT1" pointList="1048,384,1048,484,1012,484" />
+<item itemtype="Connector" uid="Connector-209" startpinid="Uno-1-2" endpinid="L298P-3-IN1" pointList="756,452,692,452,692,380,1028,380,1028,488,1068,488" />
 
-<item itemtype="Connector" uid="connector-127" startpinid="DcMotor-9-rPin" endpinid="L298P-3-OUT2" pointList="1128,384,1128,492,1012,492" />
+<item itemtype="Connector" uid="Connector-210" startpinid="L298P-3-IN2" endpinid="Uno-1-3" pointList="1068,496,996,496,996,408,728,408,728,460,756,460" />
 
-<item itemtype="Connector" uid="connector-128" startpinid="DcMotor-2-lPin" endpinid="L298P-3-OUT3" pointList="1156,376,1156,500,1012,500" />
+<item itemtype="Connector" uid="Connector-211" startpinid="L298P-3-IN3" endpinid="Uno-1-4" pointList="1068,504,936,504,936,424,740,424,740,468,756,468" />
 
-<item itemtype="Connector" uid="connector-129" startpinid="L298P-3-OUT4" endpinid="DcMotor-2-rPin" pointList="1012,508,1236,508,1236,376" />
+<item itemtype="Connector" uid="Connector-212" startpinid="Uno-1-7" endpinid="L298P-3-IN4" pointList="756,492,732,492,732,664,996,664,996,512,1068,512" />
 
 </circuit>

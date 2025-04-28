@@ -1,111 +1,34 @@
 #ifndef PINS_H
 #define PINS_H
 
-#include <avr/io.h>
+#define SET_BIT(reg, bit)    ((reg) |= (1 << (bit)))
+#define CLEAR_BIT(reg, bit)  ((reg) &= ~(1 << (bit)))
+#define READ_BIT(reg, bit)   ((reg) & (1 << (bit)))
 
-#define F_CPU 16000000UL
-#define BAUD_RATE 9600
+// Ultrasonic sensor pins
+#define LEFT_TRIG_PIN   PC0
+#define LEFT_ECHO_PIN   PC1
+#define FRONT_TRIG_PIN  PC2
+#define FRONT_ECHO_PIN  PC3
+#define RIGHT_TRIG_PIN  PC4
+#define RIGHT_ECHO_PIN  PC5
 
-// Front right motor
-#define MOTOR_FR_IN1_DDR DDRB
-#define MOTOR_FR_IN1_PORT PORTB
-#define MOTOR_FR_IN1_PIN PB0
+// Motor control pins
+// Right motors
+#define RIGHT_IN1_PIN   PD2
+#define RIGHT_IN2_PIN   PD3
+#define RIGHT_EN_PIN    PD5  // PWM pin for speed control
 
-#define MOTOR_FR_IN2_DDR DDRB
-#define MOTOR_FR_IN2_PORT PORTB
-#define MOTOR_FR_IN2_PIN PB1
+// Left motors
+#define LEFT_IN1_PIN    PD4
+#define LEFT_IN2_PIN    PD7
+#define LEFT_EN_PIN     PD6  // PWM pin for speed control
 
-#define MOTOR_FR_EN_DDR DDRB
-#define MOTOR_FR_EN_PORT PORTB
-#define MOTOR_FR_EN_PIN PB4 // OC1A - Timer1 PWM output A
+#define HEADLIGHT_PIN   PB0
 
-// Front left motor
-#define MOTOR_FL_IN1_DDR DDRB
-#define MOTOR_FL_IN1_PORT PORTB
-#define MOTOR_FL_IN1_PIN PB2
+// Speed definitions
+#define SPEED_NORMAL    180  // 0-255 PWM value for normal speed
+#define SPEED_SLOW      100  // 0-255 PWM value for slow speed
+#define SPEED_VERY_SLOW 50   // 0-255 PWM value for very slow speed (for parking)
 
-#define MOTOR_FL_IN2_DDR DDRB
-#define MOTOR_FL_IN2_PORT PORTB
-#define MOTOR_FL_IN2_PIN PB3
-
-#define MOTOR_FL_EN_DDR DDRB
-#define MOTOR_FL_EN_PORT PORTB
-#define MOTOR_FL_EN_PIN PB5 // OC1B - Timer1 PWM output B
-
-// Rear right motor
-#define MOTOR_RR_IN1_DDR DDRC
-#define MOTOR_RR_IN1_PORT PORTC
-#define MOTOR_RR_IN1_PIN PC2
-
-#define MOTOR_RR_IN2_DDR DDRC
-#define MOTOR_RR_IN2_PORT PORTC
-#define MOTOR_RR_IN2_PIN PC3
-
-#define MOTOR_RR_EN_DDR DDRD
-#define MOTOR_RR_EN_PORT PORTD
-#define MOTOR_RR_EN_PIN PD3 // OC2B - Timer2 PWM output B
-
-// Rear left motor
-#define MOTOR_RL_IN1_DDR DDRC
-#define MOTOR_RL_IN1_PORT PORTC
-#define MOTOR_RL_IN1_PIN PC4
-
-#define MOTOR_RL_IN2_DDR DDRC
-#define MOTOR_RL_IN2_PORT PORTC
-#define MOTOR_RL_IN2_PIN PC5
-
-#define MOTOR_RL_EN_DDR DDRD
-#define MOTOR_RL_EN_PORT PORTD
-#define MOTOR_RL_EN_PIN PD5 // OC0B - Timer0 PWM output B
-
-#define LED_STATUS_DDR DDRC
-#define LED_STATUS_PORT PORTC
-#define LED_STATUS_PIN PC0
-
-#define LED_PARKING_DDR DDRC
-#define LED_PARKING_PORT PORTC
-#define LED_PARKING_PIN PC1
-
-#define BLUETOOTH_RX_DDR DDRD
-#define BLUETOOTH_RX_PORT PORTD
-#define BLUETOOTH_RX_PIN PD0
-
-#define BLUETOOTH_TX_DDR DDRD
-#define BLUETOOTH_TX_PORT PORTD
-#define BLUETOOTH_TX_PIN PD1
-
-#define US_FRONT_TRIG_DDR DDRD
-#define US_FRONT_TRIG_PORT PORTD
-#define US_FRONT_TRIG_PIN PD2
-
-#define US_FRONT_ECHO_DDR DDRD
-#define US_FRONT_ECHO_PORT PORTD
-#define US_FRONT_ECHO_PIN PD4
-
-#define US_RIGHT_TRIG_DDR DDRD
-#define US_RIGHT_TRIG_PORT PORTD
-#define US_RIGHT_TRIG_PIN PD6
-
-#define US_RIGHT_ECHO_DDR DDRD
-#define US_RIGHT_ECHO_PORT PORTD
-#define US_RIGHT_ECHO_PIN PD7
-
-#define US_LEFT_TRIG_DDR DDRC
-#define US_LEFT_TRIG_PORT PORTC
-#define US_LEFT_TRIG_PIN PC6
-
-#define US_LEFT_ECHO_DDR DDRC
-#define US_LEFT_ECHO_PORT PORTC
-#define US_LEFT_ECHO_PIN PC7
-
-#define SPEED_SLOW 85
-#define SPEED_NORMAL 170
-#define SPEED_MAX 255
-
-#define MIN_PARKING_SPACE 15
-#define SAFE_DISTANCE 5
-#define ROAD_WIDTH 30
-#define VEHICLE_LENGTH 20
-#define VEHICLE_WIDTH 10
-
-#endif
+#endif // PINS_H
