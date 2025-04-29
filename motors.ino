@@ -6,7 +6,7 @@ void motors_init() {
     // Configure motor control pins as outputs
     // Right motors
     SET_BIT(DDRD, RIGHT_IN1_PIN);
-    SET_BIT(DDRD, RIGHT_IN2_PIN);
+    SET_BIT(DDRB, RIGHT_IN2_PIN);
     SET_BIT(DDRD, RIGHT_EN_PIN);
     
     // Left motors
@@ -24,23 +24,8 @@ void motors_init() {
 
 void move_forward(uint8_t speed) {
     // Right motors direction
-    SET_BIT(PORTD, RIGHT_IN1_PIN);
-    CLEAR_BIT(PORTD, RIGHT_IN2_PIN);
-    
-    // Left motors direction
-    SET_BIT(PORTD, LEFT_IN1_PIN);
-    CLEAR_BIT(PORTD, LEFT_IN2_PIN);
-    
-    // Set speed
-    OCR0A = speed;  // Right motors speed
-    OCR0B = speed;  // Left motors speed
-}
-
-
-void move_backward(uint8_t speed) {
-    // Right motors direction
     CLEAR_BIT(PORTD, RIGHT_IN1_PIN);
-    SET_BIT(PORTD, RIGHT_IN2_PIN);
+    SET_BIT(PORTB, RIGHT_IN2_PIN);
     
     // Left motors direction
     CLEAR_BIT(PORTD, LEFT_IN1_PIN);
@@ -51,14 +36,31 @@ void move_backward(uint8_t speed) {
     OCR0B = speed;  // Left motors speed
 }
 
-void turn_right(uint8_t speed) {
-    // Right motors slower
+
+void move_backward(uint8_t speed) {
+    // Right motors direction
     SET_BIT(PORTD, RIGHT_IN1_PIN);
-    CLEAR_BIT(PORTD, RIGHT_IN2_PIN);
+    CLEAR_BIT(PORTB, RIGHT_IN2_PIN);
     
-    // Left motors faster
+    // Left motors direction
     SET_BIT(PORTD, LEFT_IN1_PIN);
     CLEAR_BIT(PORTD, LEFT_IN2_PIN);
+    
+    
+    // Set speed
+    OCR0A = speed;  // Right motors speed
+    OCR0B = speed;  // Left motors speed
+}
+
+void turn_right(uint8_t speed) {
+    // Right motors faster
+    SET_BIT(PORTD, RIGHT_IN1_PIN);
+    CLEAR_BIT(PORTB, RIGHT_IN2_PIN);
+    
+    // Left motors slower
+    SET_BIT(PORTD, LEFT_IN1_PIN);
+    CLEAR_BIT(PORTD, LEFT_IN2_PIN);
+    
     
     // Set different speeds for turning
     OCR0A = speed / 2;  // Right motors slower
@@ -67,11 +69,11 @@ void turn_right(uint8_t speed) {
 
 
 void turn_left(uint8_t speed) {
-    // Right motors faster
+    // Right motors slower
     SET_BIT(PORTD, RIGHT_IN1_PIN);
-    CLEAR_BIT(PORTD, RIGHT_IN2_PIN);
+    CLEAR_BIT(PORTB, RIGHT_IN2_PIN);
     
-    // Left motors slower
+    // Left motors faster
     SET_BIT(PORTD, LEFT_IN1_PIN);
     CLEAR_BIT(PORTD, LEFT_IN2_PIN);
     
@@ -82,24 +84,9 @@ void turn_left(uint8_t speed) {
 
 
 void rotate_right(uint8_t speed) {
-    // Right motors backward
-    CLEAR_BIT(PORTD, RIGHT_IN1_PIN);
-    SET_BIT(PORTD, RIGHT_IN2_PIN);
-    
-    // Left motors forward
-    SET_BIT(PORTD, LEFT_IN1_PIN);
-    CLEAR_BIT(PORTD, LEFT_IN2_PIN);
-    
-    // Set speed
-    OCR0A = speed;  // Right motors speed
-    OCR0B = speed;  // Left motors speed
-}
-
-
-void rotate_left(uint8_t speed) {
-    // Right motors forward
+        // Right motors forward
     SET_BIT(PORTD, RIGHT_IN1_PIN);
-    CLEAR_BIT(PORTD, RIGHT_IN2_PIN);
+    CLEAR_BIT(PORTB, RIGHT_IN2_PIN);
     
     // Left motors backward
     CLEAR_BIT(PORTD, LEFT_IN1_PIN);
@@ -111,10 +98,27 @@ void rotate_left(uint8_t speed) {
 }
 
 
+void rotate_left(uint8_t speed) {
+    // Right motors backward
+    CLEAR_BIT(PORTD, RIGHT_IN1_PIN);
+    SET_BIT(PORTB, RIGHT_IN2_PIN);
+    
+    // Left motors forward
+    SET_BIT(PORTD, LEFT_IN1_PIN);
+    CLEAR_BIT(PORTD, LEFT_IN2_PIN);
+
+
+    
+    // Set speed
+    OCR0A = speed;  // Right motors speed
+    OCR0B = speed;  // Left motors speed
+}
+
+
 void stop_motors() {
     // Stop all motors
     CLEAR_BIT(PORTD, RIGHT_IN1_PIN);
-    CLEAR_BIT(PORTD, RIGHT_IN2_PIN);
+    CLEAR_BIT(PORTB, RIGHT_IN2_PIN);
     CLEAR_BIT(PORTD, LEFT_IN1_PIN);
     CLEAR_BIT(PORTD, LEFT_IN2_PIN);
     

@@ -16,7 +16,7 @@
 // Motor control pins
 // Right motors
 #define RIGHT_IN1_PIN   PD2
-#define RIGHT_IN2_PIN   PD3
+#define RIGHT_IN2_PIN   PB0
 #define RIGHT_EN_PIN    PD5  // PWM pin for speed control
 
 // Left motors
@@ -24,11 +24,13 @@
 #define LEFT_IN2_PIN    PD7
 #define LEFT_EN_PIN     PD6  // PWM pin for speed control
 
-#define HEADLIGHT_PIN   PB0
+#define HEADLIGHT_PIN   PB1
 
 // Speed definitions
 #define SPEED_NORMAL    180  // 0-255 PWM value for normal speed
-#define SPEED_SLOW      100  // 0-255 PWM value for slow speed
-#define SPEED_VERY_SLOW 50   // 0-255 PWM value for very slow speed (for parking)
+#define SPEED_SLOW      140  // 0-255 PWM value for slow speed
+#define SPEED_VERY_SLOW 125   // 0-255 PWM value for very slow speed (for parking)
+
+#define safe_distance 5;
 
 #endif // PINS_H

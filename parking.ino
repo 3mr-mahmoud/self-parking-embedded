@@ -29,37 +29,48 @@ void parking_init(void) {
 }
 
 // Detect if there's a suitable parking space
-bool detect_parking_space(void) {
-    uint16_t left = ultrasonic_read(LEFT_TRIG_PIN, LEFT_ECHO_PIN);
-    uint16_t front = ultrasonic_read(FRONT_TRIG_PIN, FRONT_ECHO_PIN);
-    uint16_t right = ultrasonic_read(RIGHT_TRIG_PIN, RIGHT_ECHO_PIN);
+bool detect_parking_space(uint16_t front, uint16_t left, uint16_t right) {
     
     // First check if there's an obstacle in front
-    if (front < 30) {
-        // Too close to object in front, can't park here
+    if (front < 20) {
         return false;
     }
+
+    Serial.println("Space length");
+    Serial.println(space_length);
+
+    Serial.println("right");
+    Serial.println(right);
+
     
     // Check for parallel parking spaces on the right
-    if (right > 50) {
+    if (right > 15 && right <= 30) {
         consecutive_open_readings++;
-        space_length += 2; // Approximate distance traveled between readings
+        space_length += 2; 
         
-        // If enough consecutive open space detected
-        if (space_length > 60) { // Adjust this threshold based on vehicle size
+
+        if (space_length > 30) { 
             parallel_space_detected = true;
             return true;
         }
     } else {
-        // Reset counters if we detect an obstacle
         consecutive_open_readings = 0;
         space_length = 0;
     }
     
     // Check for perpendicular parking space on the right
-    if (right > 80 && front > 80) {
-        perpendicular_space_detected = true;
-        return true;
+    if (right > 30 && right <= 50) {
+        consecutive_open_readings++;
+        space_length += 2; 
+        
+
+        if (space_length > 15) { 
+            perpendicular_space_detected = true;
+            return true;
+        }
+    } else {
+        consecutive_open_readings = 0;
+        space_length = 0;
     }
     
     return false;
@@ -222,7 +233,7 @@ void perpendicular_park(void) {
 }
 
 // Main parking process function - to be called repeatedly in main loop
-void parking_process(void) {
+void parking_process(uint16_t front, uint16_t left, uint16_t right) {
     // If parking mode is not active, do nothing
     if (!is_parking_mode_active()) {
         current_state = IDLE;
@@ -236,7 +247,7 @@ void parking_process(void) {
             move_forward(SPEED_VERY_SLOW);
             
             // Check for suitable parking space
-            if (detect_parking_space()) {
+            if (detect_parking_space(front, left, right)) {
                 stop_motors();
                 _delay_ms(500);
                 
@@ -246,7 +257,7 @@ void parking_process(void) {
                     current_state = PERPENDICULAR_PARKING;
                 } else if (parallel_space_detected) {
                     parallel_space_detected = false;
-                    current_state = PARALLEL_PARKING_RIGHT; // Default to right side
+                    current_state = PARALLEL_PARKING_RIGHT;
                 }
                 
                 // Reset step counter for the parking procedure

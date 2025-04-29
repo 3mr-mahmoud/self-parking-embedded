@@ -29,23 +29,11 @@ void loop() {
         Serial.println(c);
         process_bluetooth_commands(c);
     }
-    
-    // If parking mode is active, handle the parking process
-    if (is_parking_mode_active()) {
-        parking_process();
-    } 
-    // Otherwise, let's just output sensor readings for debugging
-    else {
-        // Read ultrasonic sensors
-        uint16_t left  = ultrasonic_read(LEFT_TRIG_PIN, LEFT_ECHO_PIN);
-        uint16_t front = ultrasonic_read(FRONT_TRIG_PIN, FRONT_ECHO_PIN);
-        uint16_t right = ultrasonic_read(RIGHT_TRIG_PIN, RIGHT_ECHO_PIN);
+    static uint16_t left  = ultrasonic_read(LEFT_TRIG_PIN, LEFT_ECHO_PIN);
+    static uint16_t front = ultrasonic_read(FRONT_TRIG_PIN, FRONT_ECHO_PIN);
+    static uint16_t right = ultrasonic_read(RIGHT_TRIG_PIN, RIGHT_ECHO_PIN);
 
-        // Print sensor readings every 500ms
-        // Serial.println("Left: " + String(left) + 
-        //            " Front: " + String(front) + 
-        //            " Right: " + String(right));
-        
-        // _delay_ms(500);
+    if (is_parking_mode_active()) {
+        parking_process(front, left, right);
     }
 }

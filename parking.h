@@ -17,8 +17,8 @@ typedef enum {
 
 // Function prototypes
 void parking_init(void);
-void parking_process(void);
-bool detect_parking_space(void);
+void parking_process(uint16_t front, uint16_t left, uint16_t right);
+bool detect_parking_space(uint16_t front, uint16_t left, uint16_t right);
 void parallel_park_right(void);
 void parallel_park_left(void);
 void perpendicular_park(void);
