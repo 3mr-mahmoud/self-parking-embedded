@@ -11,8 +11,9 @@ void move_backward(uint8_t speed);
 void turn_right(uint8_t speed);
 void turn_left(uint8_t speed);
 void rotate_right(uint8_t speed);
+void rotate_right_detect(uint8_t speed);
 void rotate_left(uint8_t speed);
 void stop_motors(void);
-
+void move_forward_detect(uint8_t speed);
 
 #endif
