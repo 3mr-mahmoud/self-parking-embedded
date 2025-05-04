@@ -95,13 +95,14 @@ void set_parking_mode(bool enable) {
     parking_mode = enable;
     
     if (enable) {
+        current_state = SCAN_FOR_SPACE;
         // Headlight flash to indicate parking mode ON
         SET_BIT(PORTB, HEADLIGHT_PIN);
         _delay_ms(200);
         CLEAR_BIT(PORTB, HEADLIGHT_PIN);
         _delay_ms(200);
         SET_BIT(PORTB, HEADLIGHT_PIN);
-        current_movement = STATE_STOPPED; // Ensure we stop when entering parking mode
+        current_movement = STATE_STOPPED;
         stop_motors();
     } else {
         CLEAR_BIT(PORTB, HEADLIGHT_PIN);
